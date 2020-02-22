@@ -11,6 +11,6 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+
+Route::get('/', 'Trip_requestsController@create');
+Route::post('/', 'Trip_requestsController@store');

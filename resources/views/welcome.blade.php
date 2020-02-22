@@ -4,7 +4,7 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <title>Laravel</title>
+        <title>Viaja Facil</title>
 
         <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet">
@@ -81,18 +81,20 @@
 
             <div class="content">
                 <div class="title m-b-md">
-                    Laravel
+                    ¿A donde Viaja?
                 </div>
 
                 <div class="links">
-                    <a href="https://laravel.com/docs">Docs</a>
-                    <a href="https://laracasts.com">Laracasts</a>
-                    <a href="https://laravel-news.com">News</a>
-                    <a href="https://blog.laravel.com">Blog</a>
-                    <a href="https://nova.laravel.com">Nova</a>
-                    <a href="https://forge.laravel.com">Forge</a>
-                    <a href="https://github.com/laravel/laravel">GitHub</a>
+                    <label>Partida:</label>
+                    <input class="form-control" type="text" name="partida" value="">
                 </div>
+                <div class="links">
+                    <label>Destino:</label>
+                    <input class="form-control" type="text" name="destino" value="">
+                </div>
+                <div class="form-group">
+        <button class="btn btn-primary">Pedir Viaje</button>
+              </div>
             </div>
         </div>
     </body>
