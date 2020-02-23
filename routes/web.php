@@ -12,5 +12,8 @@
 */
 
 
-Route::get('/', 'Trip_requestsController@create');
-Route::post('/', 'Trip_requestsController@store');
+Route::get('/', 'HomeController@index')->name('home');
+Route::post('/trip_requests', 'Trip_requestsController@store');
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');

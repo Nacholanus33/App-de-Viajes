@@ -7,6 +7,9 @@ use Illuminate\Database\Eloquent\Model;
 class Trip_request extends Model
 {
   protected $fillable = [
-      'from_address', 'to_address',
+      'estimated_time','total_price','user_id','from_address', 'to_address',
   ];
+  public function  user(){
+    return $this->belongsTo('App\User');
+  }
 }

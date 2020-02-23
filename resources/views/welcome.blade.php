@@ -65,15 +65,15 @@
     </head>
     <body>
         <div class="flex-center position-ref full-height">
-            @if (Route::has('login'))
+            @if (Route::has('sign_up'))
                 <div class="top-right links">
                     @auth
-                        <a href="{{ url('/home') }}">Home</a>
+                        <a href="{{ url('/') }}">Home</a>
                     @else
-                        <a href="{{ route('login') }}">Login</a>
+                      
 
-                        @if (Route::has('register'))
-                            <a href="{{ route('register') }}">Register</a>
+                        @if (Route::has('sign_up'))
+                            <a href="{{ route('sign_up') }}">Sign Up</a>
                         @endif
                     @endauth
                 </div>
@@ -83,18 +83,20 @@
                 <div class="title m-b-md">
                     ¿A donde Viaja?
                 </div>
-
+                <form action="/trip_requests" method="post">
+                     @csrf
                 <div class="links">
                     <label>Partida:</label>
-                    <input class="form-control" type="text" name="partida" value="">
+                    <input class="form-control" type="text" name="from_address" value="">
                 </div>
                 <div class="links">
                     <label>Destino:</label>
-                    <input class="form-control" type="text" name="destino" value="">
+                    <input class="form-control" type="text" name="to_address" value="">
                 </div>
                 <div class="form-group">
-        <button class="btn btn-primary">Pedir Viaje</button>
+        <button type="submit" class="btn btn-primary">Pedir Viaje</button>
               </div>
+              </form>
             </div>
         </div>
     </body>
