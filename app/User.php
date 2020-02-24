@@ -39,4 +39,7 @@ class User extends Authenticatable
     public function  trip_requests(){
       return $this->hasMany('App\Trip_request');
     }
+    public function  car(){
+      return $this->hasOne('App\Car');
+    }
 }

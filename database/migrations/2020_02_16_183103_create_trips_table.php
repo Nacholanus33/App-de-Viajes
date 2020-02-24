@@ -15,8 +15,8 @@ class CreateTripsTable extends Migration
     {
         Schema::create('trips', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->bigInteger('trip_id')->unsigned();
-            $table->foreign('trip_id')->references('id')->on('trip_requests');
+            $table->bigInteger('trip_request_id')->unsigned();
+            $table->foreign('trip_request_id')->references('id')->on('trip_requests');
             $table->bigInteger('car_id')->unsigned();
             $table->foreign('car_id')->references('id')->on('cars');
         });

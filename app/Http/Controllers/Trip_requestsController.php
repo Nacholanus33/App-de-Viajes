@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 
 use Illuminate\Support\Facades\Auth;
 
+use Carbon\Carbon;
+
 use App\Trip_request;
 use App\User;
 
@@ -34,11 +36,13 @@ class Trip_requestsController extends Controller
       $params = $request->all();
       $params['estimated_time'] = rand(15,60);
       $params['total_price'] = rand(100,200);
-      $trip = new Trip_request($params);
+      $trip_request = new Trip_request($params);
 
-      $trip->user()->associate(Auth::user());
-      $trip->save();
+      $trip_request->user()->associate(Auth::user());
+      $trip_request->save();
 
+      $hour = Carbon::now()->format('H');
+      dd($hour);
       return redirect()->route('home');
   }
 }

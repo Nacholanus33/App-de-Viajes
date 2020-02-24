@@ -90,7 +90,7 @@
                             <label for="role" class="col-md-4 col-form-label text-md-right">{{ __('Elige tu Rol') }}</label>
 
                             <div class="col-md-6">
-                                <select id="role" class="form-control @error('role') is-invalid @enderror" name="role" required autocomplete="role">
+                                <select id="role" onchange="roleChanged(this);" class="form-control @error('role') is-invalid @enderror" name="role" required autocomplete="role">
 
                                 @error('role')
                                     <span class="invalid-feedback" role="alert">
@@ -103,8 +103,60 @@
 
                                 </select>
                             </div>
-                        </div>
 
+                        </div>
+                        <div class="form-group row" id="brand_name" style="display: none;">
+                            <label for="brand_name" class="col-md-4 col-form-label text-md-right">{{ __('Marca de tu Auto') }}</label>
+
+                            <div class="col-md-6">
+                                <input id="brand_name" type="text" class="form-control @error('brand_name') is-invalid @enderror" name="brand_name" value="{{ old('brand_name') }}" autocomplete="brand_name" autofocus>
+
+                                @error('brand_name')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+                            </div>
+                        </div>
+                        <div class="form-group row" id="patent" style="display: none;">
+                            <label for="patent" class="col-md-4 col-form-label text-md-right">{{ __('Patente de tu Auto') }}</label>
+
+                            <div class="col-md-6">
+                                <input id="patent" type="text" class="form-control @error('patent') is-invalid @enderror" name="patent" value="{{ old('patent') }}" autocomplete="patent" autofocus>
+
+                                @error('patent')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+                            </div>
+                        </div>
+                        <div class="form-group row" id="work_from_hour" style="display: none;">
+                            <label for="work_from_hour" class="col-md-4 col-form-label text-md-right">{{ __('Hora en la que empezas a trabajar') }}</label>
+
+                            <div class="col-md-6">
+                                <input id="work_from_hour" type="text" class="form-control @error('work_from_hour') is-invalid @enderror" name="work_from_hour" value="{{ old('work_from_hour') }}" autocomplete="work_from_hour" autofocus>
+
+                                @error('work_from_hour')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+                            </div>
+                        </div>
+                        <div class="form-group row" id="work_to_hour" style="display: none;">
+                            <label for="work_to_hour" class="col-md-4 col-form-label text-md-right">{{ __('Hora en la que dejas de trabajar') }}</label>
+
+                            <div class="col-md-6">
+                                <input id="work_to_hour" type="text" class="form-control @error('work_to_hour') is-invalid @enderror" name="work_to_hour" value="{{ old('work_to_hour') }}" autocomplete="work_to_hour" autofocus>
+
+                                @error('work_to_hour')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+                            </div>
+                        </div>
                         <div class="form-group row mb-0">
                             <div class="col-md-6 offset-md-4">
                                 <button type="submit" class="btn btn-primary">

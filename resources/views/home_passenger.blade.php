@@ -20,7 +20,7 @@
                       <input class="form-control" type="text" name="to_address" value="">
                   </div>
                   <div class="form-group">
-          <button type="submit" class="btn btn-primary">Pedir Viaje</button>
+                    <button type="submit" class="btn btn-primary">Pedir Viaje</button>
                 </div>
                 </form>
               </div>
