@@ -29,7 +29,21 @@ class HomeController extends Controller
       if($user->role == "passenger"){
         return view('home_passenger');
          } else {
-          return view('home_driver');
+          return view('home_driver',[
+            'user'=>$user
+          ]);
+        }
+    }
+    public function perfil(){
+      $user = Auth::user();
+      if($user->role == "passenger"){
+        return view('perfil_passenger',[
+          'user'=>$user
+        ]);
+         } else {
+          return view('perfil_driver',[
+            'user'=>$user
+          ]);
         }
     }
 }

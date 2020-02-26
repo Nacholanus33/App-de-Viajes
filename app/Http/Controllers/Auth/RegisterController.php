@@ -59,9 +59,8 @@ class RegisterController extends Controller
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
             'password' => ['required', 'string', 'min:8', 'confirmed'],
             'brand_name' => ['string', 'nullable', 'max:255'],
-            'patent' => ['string', 'nullable', 'max:255'],
+            'patent' => ['string', 'nullable', 'min:6', 'max:6'],
             'work_from_hour' => ['integer', 'nullable',  'min:0', 'max:23'],
-            'work_to_hour' => ['integer', 'nullable', 'min:0', 'max:23'],
         ]);
     }
 
@@ -80,19 +79,48 @@ class RegisterController extends Controller
           'name' => $data['first_name'] . " " . $data['last_name'],
           'email' => $data['email'],
           'password' => Hash::make($data['password']),
-          'avatar' => 'hola',
+          'avatar' => $data['avatar'],
           'role'=>$data['role'],
       ]);
-
+      $file = $data['avatar'];
+     $destinationPath = 'img/';
+     $originalFile = $file->getClientOriginalName();
+     $file->move($destinationPath, $originalFile);
 
       if($data['role'] == "driver"){
          $brand = Brand::create([
            'name' => $data['brand_name'],
         ]);
+        if ($data['work_from_hour'] == 23) {
+          $horaFinal = 7;
+        }
+        if ($data['work_from_hour'] == 22) {
+          $horaFinal = 6;
+        }
+        if ($data['work_from_hour'] == 21) {
+          $horaFinal = 5;
+        }
+        if ($data['work_from_hour'] == 20) {
+          $horaFinal = 4;
+        }
+        if ($data['work_from_hour'] == 19) {
+          $horaFinal = 3;
+        }
+        if ($data['work_from_hour'] == 18) {
+          $horaFinal = 2;
+        }
+        if ($data['work_from_hour'] == 17) {
+          $horaFinal = 1;
+        }
+        if ($data['work_from_hour'] == 16) {
+          $horaFinal = 0;
+        }else{
+          $horaFinal = $data['work_from_hour'] + 8;
+        }
         $car = new Car([
           'patent' => $data['patent'],
           'work_from_hour' => $data['work_from_hour'],
-          'work_to_hour' => $data['work_to_hour'],
+          'work_to_hour' => $horaFinal,
         ]);
         $car->user()->associate($user);
         $car->brand()->associate($brand);

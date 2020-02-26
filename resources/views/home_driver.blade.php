@@ -6,6 +6,8 @@
         <div class="col-md-8">
             <div class="card">
               <div class="content">
+                <img src='{{ asset('img/'.$user['avatar']) }}'>
+                {{$user->name}}
                 Hola
               </div>
             </div>

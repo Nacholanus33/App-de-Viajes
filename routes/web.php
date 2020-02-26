@@ -15,3 +15,7 @@
 Route::get('/', 'HomeController@index')->name('home');
 Route::post('/trip_requests', 'Trip_requestsController@store');
 Auth::routes();
+Route::get('/perfil','UsersController@index')->name('perfil');
+Route::patch('/perfil_edit','UsersController@update');
+Route::post('/perfil_edit','UsersController@edit');
+Route::get(/)

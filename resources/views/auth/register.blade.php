@@ -1,3 +1,4 @@
+
 @extends('layouts.app')
 
 @section('content')
@@ -8,7 +9,7 @@
                 <div class="card-header">{{ __('Register') }}</div>
 
                 <div class="card-body">
-                    <form method="POST" action="{{ route('register') }}">
+                    <form method="POST" action="{{ route('register') }}" enctype="multipart/form-data">
                         @csrf
 
                         <div class="form-group row">
@@ -87,6 +88,19 @@
                             </div>
                         </div>
                         <div class="form-group row">
+                            <label for="avatar" class="col-md-4 col-form-label text-md-right">{{ __('Imagen de Perfil') }}</label>
+
+                            <div class="col-md-6">
+                                <input id="avatar" type="file" class="@error('avatar') is-invalid @enderror" name="avatar" value="{{ old('avatar') }}" required autocomplete="avatar" autofocus>
+
+                                @error('avatar')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+                            </div>
+                        </div>
+                        <div class="form-group row">
                             <label for="role" class="col-md-4 col-form-label text-md-right">{{ __('Elige tu Rol') }}</label>
 
                             <div class="col-md-6">
@@ -132,25 +146,12 @@
                             </div>
                         </div>
                         <div class="form-group row" id="work_from_hour" style="display: none;">
-                            <label for="work_from_hour" class="col-md-4 col-form-label text-md-right">{{ __('Hora en la que empezas a trabajar') }}</label>
+                            <label for="work_from_hour" class="col-md-4 col-form-label text-md-right">{{ __('Hora en la que empezas a trabajar(La hora en la que dejes de trabajar sera 8 hs despues)') }}</label>
 
                             <div class="col-md-6">
                                 <input id="work_from_hour" type="text" class="form-control @error('work_from_hour') is-invalid @enderror" name="work_from_hour" value="{{ old('work_from_hour') }}" autocomplete="work_from_hour" autofocus>
 
                                 @error('work_from_hour')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
-                            </div>
-                        </div>
-                        <div class="form-group row" id="work_to_hour" style="display: none;">
-                            <label for="work_to_hour" class="col-md-4 col-form-label text-md-right">{{ __('Hora en la que dejas de trabajar') }}</label>
-
-                            <div class="col-md-6">
-                                <input id="work_to_hour" type="text" class="form-control @error('work_to_hour') is-invalid @enderror" name="work_to_hour" value="{{ old('work_to_hour') }}" autocomplete="work_to_hour" autofocus>
-
-                                @error('work_to_hour')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
                                     </span>
