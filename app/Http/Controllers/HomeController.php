@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
+use App\Trip_request;
 
 use Illuminate\Http\Request;
 
@@ -36,13 +37,16 @@ class HomeController extends Controller
     }
     public function perfil(){
       $user = Auth::user();
+      $viajes = Trip_request::where('user_id','=',$user->id);
       if($user->role == "passenger"){
         return view('perfil_passenger',[
-          'user'=>$user
+          'user'=>$user,
+          'viajes'=>$viajes
         ]);
          } else {
           return view('perfil_driver',[
-            'user'=>$user
+            'user'=>$user,
+            'viajes'=>$viajes
           ]);
         }
     }

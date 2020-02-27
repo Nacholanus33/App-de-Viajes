@@ -23,6 +23,20 @@
    </form></li>
       </ul>
     </div>
+    <div class="col-md-8">
+      <h4>Viajes Reailzados:</h4>
+    </div>
+    <div class="col-md-8">
+      <ul>
+        @php
+          foreach ($viajes as $viaje) {
+            if ($viaje->user_id == $user->id) {
+
+            }
+          }
+        @endphp
+      </ul>
+    </div>
   </div>
 </div>
 

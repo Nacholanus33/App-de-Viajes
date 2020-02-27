@@ -15,4 +15,7 @@ class Car extends Model
     public function  brand(){
       return $this->belongsTo('App\Brand');
     }
+    public function  trips(){
+      return $this->hasMany('App\Trip');
+    }
 }

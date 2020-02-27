@@ -12,4 +12,7 @@ class Trip_request extends Model
   public function  user(){
     return $this->belongsTo('App\User');
   }
+  public function  trip(){
+    return $this->hasOne('App\Trip');
+  }
 }

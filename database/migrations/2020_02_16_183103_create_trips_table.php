@@ -19,6 +19,7 @@ class CreateTripsTable extends Migration
             $table->foreign('trip_request_id')->references('id')->on('trip_requests');
             $table->bigInteger('car_id')->unsigned();
             $table->foreign('car_id')->references('id')->on('cars');
+            $table->timestamps();
         });
     }
 

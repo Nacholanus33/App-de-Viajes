@@ -88,9 +88,7 @@ class RegisterController extends Controller
      $file->move($destinationPath, $originalFile);
 
       if($data['role'] == "driver"){
-         $brand = Brand::create([
-           'name' => $data['brand_name'],
-        ]);
+        $brandYaCreada = Brand::where('name', '=', $data['brand_name'])->first();
         if ($data['work_from_hour'] == 23) {
           $horaFinal = 7;
         }
@@ -122,8 +120,15 @@ class RegisterController extends Controller
           'work_from_hour' => $data['work_from_hour'],
           'work_to_hour' => $horaFinal,
         ]);
+        if ($brandYaCreada) {
+          $car->brand()->associate($brandYaCreada);
+        }else {
+          $brand = Brand::create([
+            'name' => $data['brand_name'],
+         ]);
+          $car->brand()->associate($brand);
+        }
         $car->user()->associate($user);
-        $car->brand()->associate($brand);
         $car->save();
        }
        return $user;

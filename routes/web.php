@@ -18,4 +18,3 @@ Auth::routes();
 Route::get('/perfil','UsersController@index')->name('perfil');
 Route::patch('/perfil_edit','UsersController@update');
 Route::post('/perfil_edit','UsersController@edit');
-Route::get(/)
