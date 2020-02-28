@@ -15,10 +15,7 @@ class CarsController extends Controller
      */
     public function index()
     {
-      $cars = Car::paginate(15);
-      return view('cars.index',[
-        'cars'->$cars
-      ])
+      
     }
 
     /**

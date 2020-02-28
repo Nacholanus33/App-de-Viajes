@@ -112,7 +112,8 @@ class RegisterController extends Controller
         }
         if ($data['work_from_hour'] == 16) {
           $horaFinal = 0;
-        }else{
+        }if($data['work_from_hour'] != 16 && $data['work_from_hour'] != 17 && $data['work_from_hour'] != 18 && $data['work_from_hour'] != 19 && $data['work_from_hour'] != 20 && $data['work_from_hour'] != 21 && $data['work_from_hour'] != 22
+         && $data['work_from_hour'] != 23){
           $horaFinal = $data['work_from_hour'] + 8;
         }
         $car = new Car([

@@ -13,12 +13,23 @@
                        @csrf
                   <div class="links">
                       <label>Partida:</label>
-                      <input class="form-control" type="text" name="from_address" value="">
+                      <input class="form-control @error('from_address') is-invalid @enderror" type="text" name="from_address" value="{{old('from_address')}}" required autocomplete="from_address" autofocus>
+                        @error('from_address')
+                            <span class="invalid-feedback" role="alert">
+                                <strong>{{ $message }}</strong>
+                            </span>
+                        @enderror
                   </div>
                   <div class="links">
                       <label>Destino:</label>
-                      <input class="form-control" type="text" name="to_address" value="">
+                      <input class="form-control @error('to_address') is-invalid @enderror" type="text" name="to_address" value="{{old('to_address')}}" required autocomplete="to_address" autofocus>
+                        @error('to_address')
+                            <span class="invalid-feedback" role="alert">
+                                <strong>{{ $message }}</strong>
+                            </span>
+                        @enderror
                   </div>
+                  <br>
                   <div class="form-group">
                     <button type="submit" class="btn btn-primary">Pedir Viaje</button>
                 </div>

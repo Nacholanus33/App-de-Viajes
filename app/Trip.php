@@ -12,4 +12,7 @@ class Trip extends Model
   public function  trip_request(){
     return $this->belongsTo('App\Trip_request');
   }
+  public function comment(){
+    return $this->hasOne('App\Comment');
+  }
 }
