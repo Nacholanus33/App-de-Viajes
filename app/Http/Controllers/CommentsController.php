@@ -43,6 +43,8 @@ class CommentsController extends Controller
         $trip=Trip::find($id);
         $comment->trip()->associate($trip);
         $comment->save();
+        $mensaje ='Comentario Enviado!';
+      echo "<script type='text/javascript'>alert('$mensaje');</script>";
         return redirect('perfil');
     }
 }
