@@ -47,7 +47,7 @@ class Trip_requestsController extends Controller
      $hour = Carbon::now()->subHour(3)->hour;
      $cars = Car::all();
      foreach ($cars as $car) {
-       if ($car->work_from_hour >= 0 && $car->work_from_hour <=15 && ($hour > $car->work_from_hour && $hour <= $car->work_from_hour + 8)) {
+       if ($car->work_from_hour >= 0 && $car->work_from_hour <=15 && ($hour >= $car->work_from_hour && $hour <= $car->work_from_hour + 8)) {
          $brand = Brand::findOrFail($car->brand_id);
          $user = User::findOrFail($car->user_id);
          $trip = new Trip;

@@ -21,8 +21,8 @@
 </head>
 <body>
     <div id="app">
-        <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
-            <div class="container">
+        <nav  style="background-color:#AED6F1;" class="navbar navbar-expand-md navbar-light shadow-sm">
+            <div style="background-color:#AED6F1;" class="container">
                 <a class="navbar-brand" href="{{ url('/') }}">
                     {{ config('Home', 'Home') }}
                 </a>

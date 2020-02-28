@@ -10,8 +10,9 @@ use Illuminate\Support\Facades\Validator;
 class CommentsController extends Controller
 {
     public function create($id){
-      $comentarioYaHecho = Comment::where('trip_id','=',$id);
-      if ($comentarioYaHecho) {
+      $comentarioYaHecho = Comment::where('trip_id','=',$id)->get();
+      //var_dump($comentarioYaHecho);
+      if (!is_null($comentarioYaHecho->first())) {
         $mensaje ='Ya comentaste este viaje';
       echo "<script type='text/javascript'>alert('$mensaje');</script>";
       return redirect('perfil');
@@ -22,7 +23,12 @@ class CommentsController extends Controller
       }
 
     }
-
+    /**
+     * Store a newly created resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\Response
+     */
 
 
     public function store(Request $request,$id){

@@ -9,7 +9,7 @@
               <div class="card-header">{{ __('Agregar Comentario') }}</div>
 
               <div class="card-body">
-                  <form method="POST" action="{{ url('add_new_comment', ['id' => $id]) }}">
+                  <form method="POST" action="{{ action('CommentsController@store', ['id' => $id]) }}">
                       @csrf
 
                       <div class="form-group row">

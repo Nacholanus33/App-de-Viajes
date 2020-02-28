@@ -4,9 +4,9 @@
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">
-            <div class="card">
+            <div class="card" style="padding-left:20px;padding-right:20px;padding-top:10px;">
               <div class="content">
-                  <div class="title m-b-md">
+                  <div style="font-size:20px;font-weight:bold;"class="title m-b-md">
                       ¿A donde Viaja?
                   </div>
                   <form action="/trip_requests" method="post">
