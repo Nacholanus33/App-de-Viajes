@@ -40,18 +40,12 @@ use App\User;
           $chofer = User::find($auto->user_id);
           $marcaAuto = Brand::find($auto->brand_id);
           ?>
-        <li>Desde: {{$viaje->from_address}} <br>Hasta: {{$viaje->to_address}}<br>Precio: ${{$viaje->total_price}} <br>Tiempo recorrido: {{$viaje->estimated_time}} Minutos <br> Chofer: {{$chofer->name}} <br> Auto: {{$marcaAuto->name}} @if (isset($comment))
-        Rating: {{$comment->rating}} <br> Comentario: {{$comment->content}}
-        @endif</li>
-      @if (empty($comment))
+        <li>Desde: {{$viaje->from_address}} <br>Hasta: {{$viaje->to_address}}<br>Precio: ${{$viaje->total_price}} <br>Tiempo recorrido: {{$viaje->estimated_time}} Minutos <br> Chofer: {{$chofer->name}} <br> Auto: {{$marcaAuto->name}} </li>
         <form id="enviar_comentario" action="{{ action('CommentsController@create', ['id' => $viajeRealizado->id]) }}" method="POST">
 
-        <input class="btn btn-primary" type="submit" value="Agregar Comentario"/>
-        @csrf
-      </form>
-      @endif
-
-
+    <input class="btn btn-primary" type="submit" value="Agregar Comentario"/>
+     @csrf
+   </form>
    <br> <br>
            <?php endforeach ?>
       </ol>
